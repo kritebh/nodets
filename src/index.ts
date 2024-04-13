@@ -3,10 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+const PORT = Number(process.env.PORT) || 8000;
+const HOST = process.env.HOST || 'localhost';
 
-
-app.listen(Number(process.env.PORT) || 8000, process.env.HOST || "localhost", () => {
-    console.log(`Server is running at http://${process.env.HOST}:${process.env.PORT}`);
+app.listen(PORT, HOST, () => {
+    console.log(`Server is running at http://${HOST}:${PORT}`);
 });
 
 app.get('/', (request: Request, response: Response, next: NextFunction) => {
